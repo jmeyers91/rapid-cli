@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@simplej/rapid": "../rapid",
+    "@simplej/rapid": "git+https://github.com/jmeyers91/rapid.git",
     "lodash.snakecase": "^4.1.1",
     "nodemon": "^1.17.5",
     "yargs": "^11.0.0"
