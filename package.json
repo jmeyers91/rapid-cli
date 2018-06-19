@@ -1,6 +1,6 @@
 {
   "name": "rapid-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "bin": {
     "rapid": "./lib/cli.js"
