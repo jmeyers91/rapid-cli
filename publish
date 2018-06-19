@@ -9,6 +9,7 @@ async function main() {
   await run('git', ['add', '*']);
   await run('git', ['commit', '-am', '🚀']);
   await run('git', ['push', 'origin', 'master']);
+  await run('npm', ['publish', '--access=public']);
   console.log(`Rapid-CLI version ${version} published`);
 }
 
