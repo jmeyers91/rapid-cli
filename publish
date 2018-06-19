@@ -5,16 +5,19 @@ const path = require('path');
 const { writeFile } = require('then-fs');
 
 async function main() {
+  const version = await bumpVersion();
+  await run('git', ['add', '*']);
+  await run('git', ['commit', '-am', '🚀']);
+  await run('git', ['push', 'origin', 'master']);
+  console.log(`Rapid-CLI version ${version} published`);
+}
+
+async function bumpVersion() {
   const package = require('./package');
   const [major, minor, patch] = package.version.split(/\./g).map(n => +n);
   package.version = `${major}.${minor}.${patch + 1}`;
   await writeFile(path.join(__dirname, 'package.json'), JSON.stringify(package, null, 2));
-  const commands = [
-    `git add *`,
-    `git commit -am "🚀"`,
-    `git push origin master`,
-  ];
-  for(let command of commands) await run(command);
+  return package.version
 }
 
 main().catch(error => console.log(error));
