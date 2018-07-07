@@ -3,9 +3,13 @@
 const execa = require('execa');
 const path = require('path');
 const { writeFile } = require('then-fs');
+const package = require('./package');
+const rapidCoreVersion = require('../rapid-core/package');
 
 async function main() {
   const version = await bumpVersion();
+
+  await execa('npm', ['install', `@simplej/rapid@${rapidCoreVersion}`]);
   await execa('git', ['add', '*']);
   await execa('git', ['commit', '-am', '🚀 ' + version]);
   await execa('git', ['push', 'origin', 'master']);
@@ -14,11 +18,10 @@ async function main() {
 }
 
 async function bumpVersion() {
-  const package = require('./package');
-  const [major, minor, patch] = package.version.split(/\./g).map(n => +n);
+  const [ major, minor, patch ] = package.version.split(/\./g).map(n => +n);
   package.version = `${major}.${minor}.${patch + 1}`;
   await writeFile(path.join(__dirname, 'package.json'), JSON.stringify(package, null, 2));
-  return package.version
+  return package.version;
 }
 
 main().catch(error => console.log(error));
