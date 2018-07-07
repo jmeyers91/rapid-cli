@@ -4,7 +4,7 @@ const execa = require('execa');
 const path = require('path');
 const { writeFile } = require('then-fs');
 const package = require('./package');
-const rapidCoreVersion = require('../rapid-core/package');
+const rapidCoreVersion = require('../rapid-core/package').version;
 
 async function main() {
   const version = await bumpVersion();
