@@ -1,6 +1,6 @@
 {
   "name": "@simplej/rapid-cli",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "",
   "bin": {
     "rapid": "./lib/cli.js"
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@simplej/rapid": "0.0.13",
+    "@simplej/rapid": "0.0.14",
     "download": "^7.0.0",
     "execa": "^0.10.0",
     "lodash.snakecase": "^4.1.1",
