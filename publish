@@ -6,14 +6,16 @@ const { writeFile } = require('then-fs');
 const package = require('./package');
 const rapidCoreVersion = require('../rapid-core/package').version;
 
+const cwd = __dirname;
+
 async function main() {
   const version = await bumpVersion();
 
-  await execa('npm', ['install', `@simplej/rapid@${rapidCoreVersion}`]);
-  await execa('git', ['add', '*']);
-  await execa('git', ['commit', '-am', '🚀 ' + version]);
-  await execa('git', ['push', 'origin', 'master']);
-  await execa('npm', ['publish', '--access=public']);
+  await execa('npm', ['install', `@simplej/rapid@${rapidCoreVersion}`], {cwd});
+  await execa('git', ['add', '*'], {cwd});
+  await execa('git', ['commit', '-am', '🚀 ' + version], {cwd});
+  await execa('git', ['push', 'origin', 'master'], {cwd});
+  await execa('npm', ['publish', '--access=public'], {cwd});
   console.log(`Rapid-CLI version ${version} published (Rapid version ${rapidCoreVersion})`);
 }
 
@@ -24,4 +26,4 @@ async function bumpVersion() {
   return package.version;
 }
 
-main().catch(error => console.log(error));
+module.exports = main();
