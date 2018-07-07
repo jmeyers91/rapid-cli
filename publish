@@ -17,6 +17,8 @@ async function main() {
   await execa('git', ['push', 'origin', 'master'], {cwd});
   await execa('npm', ['publish', '--access=public'], {cwd});
   console.log(`@simplej/rapid-cli version ${version} published\n  Rapid version ${rapidCoreVersion}`);
+  
+  return version;
 }
 
 async function bumpVersion() {
