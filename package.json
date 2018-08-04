@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "npx prettier --single-quote --write \"{lib}/**/*.js\""
+    "format": "npx prettier --single-quote --write \"lib/**/*.js\""
   },
   "author": "",
   "license": "ISC",
