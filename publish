@@ -4,14 +4,11 @@ const execa = require('execa');
 const path = require('path');
 const { writeFile } = require('then-fs');
 const package = require('./package');
-const rapidCoreVersion = require('../rapid-core/package').version;
 
 const cwd = __dirname;
 
 async function main() {
   const version = await bumpVersion();
-
-  await execa('npm', ['install', `@simplej/rapid@${rapidCoreVersion}`], {cwd});
   await execa('git', ['add', '*'], {cwd});
   await execa('git', ['commit', '-am', '🚀 ' + version], {cwd});
   await execa('git', ['push', 'origin', 'master'], {cwd});
