@@ -1,6 +1,6 @@
 {
   "name": "@simplej/rapid-cli",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "description": "",
   "bin": {
     "rapid": "./lib/cli.js"
