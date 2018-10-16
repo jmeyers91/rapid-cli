@@ -1,6 +1,6 @@
 {
   "name": "@simplej/rapid-cli",
-  "version": "0.0.51",
+  "version": "0.0.52",
   "description": "",
   "bin": {
     "rapid": "./lib/cli.js"
@@ -26,7 +26,7 @@
     "prettier": "^1.14.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/jmeyers91/rapid-cli.git"
+    "type": "git",
+    "url": "https://github.com/jmeyers91/rapid-cli.git"
   }
 }
