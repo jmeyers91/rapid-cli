@@ -17,3 +17,7 @@ npm install --global @simplej/rapid-cli
 ## Options
 
 * `--root, -r` - The app root directory (defaults to the current working directory)
+
+## License
+
+Rapid is [MIT licensed](./LICENSE).
